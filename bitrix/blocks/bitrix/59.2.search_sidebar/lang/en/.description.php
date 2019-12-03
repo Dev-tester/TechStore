@@ -1,0 +1,5 @@
+<?
+$MESS["LANDING_BLOCK_59_2-BUTTON"] = "Button";
+$MESS["LANDING_BLOCK_59_2-NAME"] = "Search bar";
+$MESS["LANDING_BLOCK_59_2-SEARCH"] = "Search";
+?>

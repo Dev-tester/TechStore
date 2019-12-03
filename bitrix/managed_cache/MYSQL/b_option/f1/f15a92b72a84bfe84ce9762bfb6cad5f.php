@@ -1,0 +1,7 @@
+<?
+if($INCLUDE_FROM_CACHE!='Y')return false;
+$datecreate = '001575357336';
+$dateexpire = '001575360936';
+$ser_content = 'a:2:{s:7:"CONTENT";s:0:"";s:4:"VARS";a:1:{s:1:"-";a:9:{s:15:"~export_uniq_id";s:32:"9d7c540ff07e2025a437bba80b4bf655";s:20:"~ft_b_calendar_event";s:1:"1";s:8:"forum_id";s:1:"8";s:16:"pathes_for_sites";s:0:"";s:9:"pathes_s1";s:330:"a:6:{s:12:"path_to_user";s:33:"/company/personal/user/#user_id#/";s:21:"path_to_user_calendar";s:42:"/company/personal/user/#user_id#/calendar/";s:13:"path_to_group";s:29:"/workgroups/group/#group_id#/";s:22:"path_to_group_calendar";s:38:"/workgroups/group/#group_id#/calendar/";s:10:"path_to_vr";s:0:"";s:10:"path_to_rm";s:0:"";}";s:12:"pathes_sites";s:32:"a:2:{i:0;s:2:"Tc";i:1;s:2:"s1";}";s:9:"pathes_Tc";s:368:"a:6:{s:12:"path_to_user";s:43:"/extranet/contacts/personal/user/#user_id#/";s:21:"path_to_user_calendar";s:52:"/extranet/contacts/personal/user/#user_id#/calendar/";s:13:"path_to_group";s:38:"/extranet/workgroups/group/#group_id#/";s:22:"path_to_group_calendar";s:47:"/extranet/workgroups/group/#group_id#/calendar/";s:10:"path_to_vr";s:0:"";s:10:"path_to_rm";s:0:"";}";s:12:"rm_iblock_id";s:2:"14";s:14:"rm_iblock_type";s:6:"events";}}}';
+return true;
+?>

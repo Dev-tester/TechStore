@@ -1,0 +1,7 @@
+<?
+if($INCLUDE_FROM_CACHE!='Y')return false;
+$datecreate = '001575301003';
+$dateexpire = '001577893003';
+$ser_content = 'a:2:{s:7:"CONTENT";s:0:"";s:4:"VARS";a:3:{s:8:"arResult";a:1:{i:0;a:26:{s:2:"ID";s:1:"1";s:4:"NAME";s:10:"Evgeny Dev";s:6:"XML_ID";s:32:"5cc99e79b5a93373370f517f377abde3";s:11:"EXTERNAL_ID";N;s:16:"GAPI_CALENDAR_ID";N;s:6:"ACTIVE";s:1:"Y";s:11:"DESCRIPTION";s:65:"Календарь был создан автоматически";s:5:"COLOR";s:7:"#9dcf00";s:10:"TEXT_COLOR";N;s:6:"EXPORT";a:2:{s:5:"ALLOW";b:1;s:4:"LINK";s:123:"&type=user&owner=1&ncc=1&user=1&sec_id=1&sign=94b41e6b88819fcd4baad1da19712c5b&bx_hit_hash=9ba40816689f1a2a1899dc4cfa9f1809";}s:4:"SORT";s:3:"100";s:8:"CAL_TYPE";s:4:"user";s:8:"OWNER_ID";s:1:"1";s:10:"CREATED_BY";s:1:"1";s:9:"PARENT_ID";N;s:11:"DATE_CREATE";s:19:"2019-12-02 18:37:00";s:11:"TIMESTAMP_X";s:19:"2019-12-02 18:36:42";s:12:"DAV_EXCH_CAL";N;s:12:"DAV_EXCH_MOD";N;s:11:"CAL_DAV_CON";N;s:11:"CAL_DAV_CAL";N;s:11:"CAL_DAV_MOD";N;s:11:"IS_EXCHANGE";b:0;s:10:"SYNC_TOKEN";N;s:13:"EXTERNAL_TYPE";N;s:10:"OUTLOOK_JS";s:127:"BX.StsSync.sync(\'calendar\', \'/stssync/calendar\', \'/\', \'Evgeny Dev\', \'Evgeny Dev\', \'{5cc99e79-b5a9-3373-370f-517f377abde3}\', 80)";}}s:12:"arSectionIds";a:1:{i:0;s:1:"1";}s:11:"permissions";a:0:{}}}';
+return true;
+?>

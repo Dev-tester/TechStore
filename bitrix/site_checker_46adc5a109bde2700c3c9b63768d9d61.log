@@ -1,0 +1,132 @@
+2019-Dec-03 10:00:54 Наличие необходимых модулей php (check_php_modules): Ok
+Все необходимые модули установлены
+2019-Dec-03 10:00:54 Обязательные параметры PHP (check_php_settings): Ok
+Настройки правильные
+2019-Dec-03 10:00:54 Модули веб-сервера (check_security): Ok
+Конфликтов не выявлено
+2019-Dec-03 10:00:54 Значения переменных сервера (check_server_vars): Ok
+Корректные
+2019-Dec-03 10:00:54 Сохранение сессии (check_session): Ok
+50% done
+2019-Dec-03 10:00:54 Сохранение сессии (check_session): Ok
+Успешно
+2019-Dec-03 10:00:54 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
+Правильные. Сайт работает в UTF кодировке
+2019-Dec-03 10:00:54 Служебные скрипты в корне сайта (check_install_scripts): Ok
+Отсутствуют
+2019-Dec-03 10:00:54 Работа с сокетами (check_socket): Ok
+Connection to test.bitrix.ru:80	Success
+
+Успешно
+2019-Dec-03 10:00:54 Выполнение агентов на cron (check_bx_crontab): Ok
+Успешно
+2019-Dec-03 10:00:55 Бизнес-чат в реальном времени (check_pull_stream): Warning
+Server version: 4 (Bitrix Push server)
+Connection to test.bitrix.ru:80	Success
+Connection to bitrix.localdomain:8895	Success
+
+Замечание. При наличии модуля мгновенных сообщений необходимо выключить продление сессии при активности в настройках главного модуля для снижения нагрузки на сервер.
+2019-Dec-03 10:00:55 Живые комментарии в ленте сообщений (check_pull_comments): Ok
+Успешно
+2019-Dec-03 10:00:56 Видеозвонки (check_turn): Ok
+Connection to turn.calls.bitrix24.com:40001	Success
+
+Доступны
+2019-Dec-03 10:01:07 Мобильное приложение Битрикс24 (check_access_mobile): Warning
+Connection to checker.internal.bitrix24.com:80	Success
+== Request ==
+GET /check/?license_hash=ee054a156a095bf850f0e0539a11dc45&host=test.bitrix.ru&port=80&https=N HTTP/1.1
+host: checker.internal.bitrix24.com
+
+
+== Response ==
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Date: Tue, 03 Dec 2019 07:00:58 GMT
+Server: nginx/1.8.1
+X-Powered-By: PHP/5.3.3
+Content-Length: 46
+Connection: keep-alive
+
+== Body ==
+Check: OK
+Status: 200
+Connection: keep-alive
+
+==========
+Connection to checker.internal.bitrix24.com:80	Success
+== Request ==
+GET /check/?license_hash=ee054a156a095bf850f0e0539a11dc45&host=test.bitrix.ru&port=8893&https=N HTTP/1.1
+host: checker.internal.bitrix24.com
+
+
+== Response ==
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Date: Tue, 03 Dec 2019 07:01:09 GMT
+Server: nginx/1.8.1
+X-Powered-By: PHP/5.3.3
+Content-Length: 33
+Connection: keep-alive
+
+== Body ==
+Check: OK
+Status: 0
+Connection: 
+
+==========
+
+Замечание. Внешнее подключение к порталу есть, но нет доступа к порту чтения сообщений модуля nginx-push-stream, мгновенные сообщения в мобильном приложении работать не будут.
+2019-Dec-03 10:01:08 Уведомления пользователям на мобильные устройства (push уведомления) (check_push_bitrix): Ok
+Connection to ssl://cloud-messaging.bitrix24.com:443	Success
+
+Успешно
+2019-Dec-03 10:01:08 Работа с документами через Google Docs и MS Office Online (check_access_docs): Ok
+Успешно
+2019-Dec-03 10:01:08 Битрикс24.Диск. Быстрая работа с файлами (check_fast_download): Ok
+Connection to test.bitrix.ru:80	Success
+
+Успешно
+2019-Dec-03 10:01:08 Поиск по содержимому документов (check_search): Ok
+Успешно
+2019-Dec-03 10:01:08 Отправка почтовых уведомлений (check_mail): Ok
+Успешно
+2019-Dec-03 10:01:09 Доступ к облачным сервисам 1С-Битрикс (check_ca_file): Ok
+Успешно
+2019-Dec-03 10:01:09 Интеграция с почтой внутри компании (check_connect_mail): Warning
+Замечание. Интеграция с внешними почтовыми сервисами доступна, но ни один пользователь не выполнил настройку
+2019-Dec-03 10:01:09 Интеграция с соцсетями (check_socnet): Warning
+Замечание. Не настроен ни один социальный сервис в настройках модуля социальных сервисов
+2019-Dec-03 10:01:09 Работа с REST API (check_rest): Ok
+Успешно
+2019-Dec-03 10:01:09 Публикация сообщений в живую ленту из почты (check_mail_push): Warning
+Замечание. Не удалось получить MX запись для домена test.bitrix.ru
+2019-Dec-03 10:01:09 Доступ снаружи к Экстранет (check_extranet): Ok
+Успешно
+2019-Dec-03 10:01:09 Редактирование документов в MS Office (check_webdav): Ok
+Connection to test.bitrix.ru:80	Success
+Connection to test.bitrix.ru:80	Success
+Connection to test.bitrix.ru:80	Success
+Connection to test.bitrix.ru:80	Success
+Connection to test.bitrix.ru:80	Success
+
+Успешно
+2019-Dec-03 10:01:09 Интеграция с внешними приложениями (MS Office, Outlook, Exchange) через безопасное подключение к порталу (check_socket_ssl): Warning
+Connection to ssl://test.bitrix.ru:443 (certificate check enabled)	Fail
+Connection to ssl://test.bitrix.ru:443	Fail
+
+Замечание. Не удалось подключиться к https://test.bitrix.ru
+2019-Dec-03 10:01:09 Интеграция с Active Directory (check_ad): Warning
+Замечание. Интеграция с AD сервером не настроена
+2019-Dec-03 10:01:09 Единая авторизация в Windows сети (NTLM) (check_ntlm): Warning
+Замечание. Выключена опция использования NTLM авторизации в настройках модуля ldap
+2019-Dec-03 10:01:09 Оценка производительности сервера (check_perf): Ok
+Connection to test.bitrix.ru:80	Success
+Connection to test.bitrix.ru:80	Success
+Connection to test.bitrix.ru:80	Success
+
+Высокая (58.48 страниц в секунду)
+2019-Dec-03 10:01:09 Ускорение открытия страниц (check_compression): Ok
+Connection to test.bitrix.ru:80	Success
+
+Работает: используется сжатие модулем сервера
