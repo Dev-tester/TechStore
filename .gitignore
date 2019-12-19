@@ -1,9 +1,0 @@
-upload/*
-.git
-.gitignore
-cache/*
-updates/*
-images/*
-tmp/*
-sounds/*
-managed_cache/*
